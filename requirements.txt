@@ -1,0 +1,13 @@
+# Core RAG stack
+sentence-transformers==2.7.0   # local embeddings, no API key
+chromadb==0.5.0                # vector store, runs on disk
+groq==0.9.0                    # free LLM inference (Mixtral, Llama3)
+
+# PDF support (optional but recommended for research papers)
+pypdf==4.2.0
+
+# Web UI
+streamlit==1.35.0
+
+# Utilities (usually already installed)
+numpy>=1.24.0
