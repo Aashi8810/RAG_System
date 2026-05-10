@@ -1,13 +1,14 @@
 # Core RAG stack
-sentence-transformers==2.7.0   # local embeddings, no API key
-chromadb==0.5.0                # vector store, runs on disk
-groq==0.9.0                    # free LLM inference (Mixtral, Llama3)
+sentence-transformers>=3.0.0   # Newer versions handle torch dependencies better
+chromadb>=0.5.0
+groq>=0.15.0                   # Fixes the 'proxies' argument incompatibility
 
-# PDF support (optional but recommended for research papers)
-pypdf==4.2.0
+# PDF support
+pypdf>=4.2.0
 
 # Web UI
-streamlit==1.35.0
+streamlit>=1.35.0
 
-# Utilities (usually already installed)
+# Utilities
 numpy>=1.24.0
+httpx>=0.27.0
