@@ -5,8 +5,8 @@ Run:
     streamlit run app.py
 
 Requires:
-    GROQ_API_KEY set in environment or in .streamlit/secrets.toml:
-        GROQ_API_KEY = "gsk_..."
+    GROQ_API_KEY set in a local .env file:
+        GROQ_API_KEY="gsk_..."
 """
 
 import os
@@ -15,8 +15,12 @@ import time
 import chromadb
 import streamlit as st
 from sentence_transformers import SentenceTransformer
+from dotenv import load_dotenv  # <-- Added to load environment variables
 
 from query import retrieve, build_prompt, generate, EMBED_MODEL, CHROMA_DIR, COLLECTION
+
+# ── Load local environment variables ──────────────────────────────────────────
+load_dotenv()  # This reads your local .env file automatically
 
 # ── Page config ───────────────────────────────────────────────────────────────
 
@@ -34,14 +38,7 @@ st.caption("Powered by sentence-transformers + ChromaDB + Groq (free)")
 with st.sidebar:
     st.header("Settings")
 
-    groq_key = st.text_input(
-        "Groq API Key",
-        value       = os.getenv("GROQ_API_KEY", ""),
-        type        = "password",
-        help        = "Free key from https://console.groq.com",
-    )
-    if groq_key:
-        os.environ["GROQ_API_KEY"] = groq_key
+    # 🛑 REMOVED: groq_key text input widget is gone.
 
     model_choice = st.selectbox(
         "LLM model",
@@ -122,8 +119,9 @@ for msg in st.session_state.messages:
 question = st.chat_input("Ask a question about your papers…")
 
 if question:
+    # 🔄 UPDATED: Directly checking the environment for the key now
     if not os.getenv("GROQ_API_KEY"):
-        st.error("Enter your Groq API key in the sidebar.")
+        st.error("GROQ_API_KEY is missing! Please add it to your local `.env` file.")
         st.stop()
 
     # Show user message
@@ -147,7 +145,8 @@ if question:
         from groq import Groq
         from query import SYSTEM_PROMPT
 
-        client = Groq(api_key=os.environ["GROQ_API_KEY"])
+        # 🔄 UPDATED: Uses the key automatically sourced from os.getenv
+        client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         t1     = time.perf_counter()
         completion = client.chat.completions.create(
             model    = model_choice,
