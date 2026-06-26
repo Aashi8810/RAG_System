@@ -128,14 +128,7 @@ python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Set Up Groq API
-
-```bash
-# Get a free key at https://console.groq.com (no credit card)
-export GROQ_API_KEY=gsk_your_key_here
-```
-
-### 3. Add Papers
+### 2. Add Papers
 
 ```bash
 mkdir papers
@@ -144,7 +137,7 @@ mkdir papers
 cp ~/Downloads/attention*.pdf papers/
 ```
 
-### 4. Index
+### 3. Index
 
 ```bash
 python ingest.py --docs_dir ./papers
@@ -162,7 +155,7 @@ Processing: attention_is_all_you_need.pdf
 Done. ChromaDB now contains 43 total chunks.
 ```
 
-### 5. Query
+### 4. Query
 
 **CLI:**
 ```bash
