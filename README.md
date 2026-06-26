@@ -2,7 +2,13 @@
 
 Query research papers using Retrieval-Augmented Generation. Built with sentence-transformers (local embeddings), ChromaDB (vector store), and Groq API (free LLM inference). No credit card required.
 
-**Status**: Production-ready. Used in [your deployment link here]. See [live demo](#live-demo).
+![RAG](https://img.shields.io/badge/Architecture-RAG-2ECC71?style=flat-square&labelColor=27AE60&logo=diagrams.net&logoColor=white)
+![Vector Search](https://img.shields.io/badge/Retrieval-Local_Vector_Search-2ECC71?style=flat-square&labelColor=1E5335)
+![Embedding](https://img.shields.io/badge/Embeddings-all_MiniLM_L6_v2-0070F3?style=flat-square&labelColor=003087)
+![Context Generation](https://img.shields.io/badge/Generation-Context_Aware_QA-00D2FF?style=flat-square&labelColor=006699)
+![LLM](https://img.shields.io/badge/LLM-Llama_3.3_/_Gemma_7b-FF3366?style=flat-square&labelColor=990033)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Deep_Vector_Store-FF9900?style=flat-square&labelColor=B36B00&logo=chroma&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq_API-Infinitesimal_Speed-FF5722?style=flat-square&labelColor=D03B0D&logo=lightning&logoColor=white)
 
 ---
 
